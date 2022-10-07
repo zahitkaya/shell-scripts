@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache ActiveMQ Artemis
+After=network.target
+
+
+[Service]
+Type=forking
+User=artemis
+Group=artemis
+ExecStart=/var/lib/test-broker/bin/artemis-service start
+ExecStop=/var/lib/test-broker/bin/artemis-service stop
+UMask=0007
+RestartSec=10
+Restart=always
+
+
+[Install]
+WantedBy=multi-user.target
